@@ -1,0 +1,13 @@
+options(stringsAsFactors = F)
+
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(optparse))
+
+option_list = list(
+    make_option(c("-i", "--input"), type="character", default=NULL, 
+                help="Input file name", metavar="character")
+)
+opt_parser <- OptionParser(option_list=option_list);
+args <- parse_args(opt_parser)
+
