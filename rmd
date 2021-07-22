@@ -20,11 +20,14 @@ library(RColorBrewer)
 library(dplyr)
 library(tidyr)
 library(scales)
+library(glue)
 
-source("~/scripts/R_rainclouds.R")
+# source("~/scripts/R_rainclouds.R")
 
 knitr::opts_knit$set(root.dir = "PLACEHOLDER")
 knitr::opts_chunk$set(fig.width = 4, fig.height = 4, fig.show = "hold")
+
+options(dplyr.summarise.inform = FALSE)  # Disable "`summarise()` has grouped output by 'foo'" message
 
 theme_set(theme_bw(base_size = 12))
 ```
