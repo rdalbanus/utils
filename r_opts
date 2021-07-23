@@ -6,8 +6,15 @@ suppressPackageStartupMessages(library(optparse))
 
 option_list = list(
     make_option(c("-i", "--input"), type="character", default=NULL, 
+                help="Input file name", metavar="character"),
+    make_option(c("-o", "--output"), type="character", default=NULL, 
                 help="Input file name", metavar="character")
 )
 opt_parser <- OptionParser(option_list=option_list);
 args <- parse_args(opt_parser)
 
+# Attention! Use args[["foo"]] to pull values instead of args$foo
+# The $ operator pulls partial strings (args$f = args$foo) and will cause 
+# issues when two options partially match each other (e.g. foo and foo_bar).
+infile <- args[["input"]]
+outfile <- args[["output"]]
