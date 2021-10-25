@@ -7,9 +7,9 @@ if [ "${1}" == "" ]; then
     exit
 fi
 
-controldir="/home/dricardo/control/${1}"
-workdir="/home/dricardo/work/${1}"
-datadir="/home/dricardo/projects_data/${1}"
+controldir="/$HOME/control/${1}"
+workdir="$HOME/work/${1}"
+datadir="$HOME/projects_data/${1}"
 
 if [ -d "${controldir}" -o -d "${workdir}" -o -d "${datadir}" ]; then
     echo -e "\nOne or more of the directories below already exist:"
