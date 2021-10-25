@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# mktemplate - generate multiple template files
+
+if [ "$1" == "" -o "$2" == "" ]; then
+        echo "Usage: mktemplate [template] [outfile]"
+        echo "see ~dricardo/templates for available templates"
+        exit
+fi
+
+rootdir=`pwd`
+cp ~/templates/$1 $2
+# https://stackoverflow.com/questions/584894/environment-variable-substitution-in-sed
+sed -i "s@= \"PLACEHOLDER\"@= \"${rootdir}\"@g" $2  
