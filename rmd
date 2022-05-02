@@ -15,14 +15,10 @@ options(stringsAsFactors = F)
 seed <- 87532163
 
 library(knitr)
-library(ggplot2)
+library(tidyverse)
 library(RColorBrewer)
-library(dplyr)
-library(tidyr)
 library(scales)
 library(glue)
-
-# source("~/scripts/R_rainclouds.R")
 
 knitr::opts_knit$set(root.dir = "PLACEHOLDER")
 knitr::opts_chunk$set(fig.width = 4, fig.height = 4, fig.show = "hold")

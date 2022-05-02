@@ -1,7 +1,6 @@
 options(stringsAsFactors = F)
 
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(optparse))
 
 option_list = list(
