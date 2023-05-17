@@ -15,17 +15,8 @@ options(stringsAsFactors = F)
 seed <- 87532163
 set.seed(seed)
 
-library(knitr)
-library(tidyverse)
-library(RColorBrewer)
-library(scales)
-library(glue)
+source("~/scripts/R/iframe_pdfs.R")
+source("~/scripts/R/rnotebook_setup.R")
 
 knitr::opts_knit$set(root.dir = "PLACEHOLDER")
-knitr::opts_chunk$set(fig.width = 4, fig.height = 4, fig.show = "hold")
-knitr::opts_chunk$set(dev = "CairoPNG")
-
-options(dplyr.summarise.inform = FALSE)  # Disable "`summarise()` has grouped output by 'foo'" message
-
-theme_set(theme_bw(base_size = 12) + theme(axis.text = element_text(colour = "black")))
 ```
