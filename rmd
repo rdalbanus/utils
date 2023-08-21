@@ -10,7 +10,7 @@ editor_options:
   chunk_output_type: inline
 ---
 
-```{r setup, include=FALSE}
+```{r setup}
 options(stringsAsFactors = F)
 seed <- 87532163
 set.seed(seed)
