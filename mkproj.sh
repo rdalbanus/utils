@@ -20,7 +20,9 @@ fi
 mkdir -p ${controldir} ${workdir} ${datadir}
 mkdir -p ${controldir}/{src,notebooks,scripts}
 mkdir -p ${controldir}/src/envs/scripts
-touch ${controldir}/commands
+
+echo "#!/bin/bash" >>  ${controldir}/commands
+echo "cd ${workdir}" >> ${controldir}/commands
 
 ln -s ${controldir}/* ${workdir}
 ln -s ${datadir} ${workdir}/data

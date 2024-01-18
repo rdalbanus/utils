@@ -9,6 +9,20 @@ if [ "$1" == "" -o "$2" == "" ]; then
 fi
 
 rootdir=`pwd`
+suffix=`echo ${rootdir} | sed "s|${WORKDIR}/||g"`
+
 cp ~/templates/$1 $2
-# https://stackoverflow.com/questions/584894/environment-variable-substitution-in-sed
-sed -i "s@= \"PLACEHOLDER\"@= \"${rootdir}\"@g" $2  
+
+# Test if we have $WORKDIR set. If not, use the current directory
+# stackoverflow.com/questions/584894
+if [ -z ${WORKDIR+x} ]; then 
+        sed -i "s@= \"PLACEHOLDER\"@= \"${rootdir}\"@g" $2
+else
+        sed -i "s|PLACEHOLDER|\$WORKDIR/${suffix}|g" $2
+fi
+
+# If it's an R file, we use file.path() and Sys.getenv()
+if [[ "$1" =~ (r|rmd|r_opts) ]]; then
+        new='file.path(Sys.getenv("WORKDIR"), "'"${suffix}\""')'
+        sed -i "s|\"\$WORKDIR/${suffix}\"|${new}|g" $2
+fi
