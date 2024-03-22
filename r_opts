@@ -1,14 +1,14 @@
 options(stringsAsFactors = F)
 
 suppressPackageStartupMessages({
-    library(tidyverse)
-    library(optparse)
+  library(tidyverse)
+  library(optparse)
 })
 
 option_list = list(
-    make_option(c("-i", "--input"), type="character", default=NULL, 
+  make_option(c("-i", "--input"), type="character", default=NULL, 
                 help="Input file name", metavar="character"),
-    make_option(c("-o", "--output"), type="character", default=NULL, 
+  make_option(c("-o", "--output"), type="character", default=NULL, 
                 help="Output file name", metavar="character")
 )
 opt_parser <- OptionParser(option_list=option_list);

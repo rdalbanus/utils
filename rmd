@@ -1,5 +1,5 @@
 ---
-title: "PLACEHOLDER"
+title: "TITLE"
 output:
   html_document:
     theme: readable
@@ -18,5 +18,7 @@ set.seed(seed)
 source("~/scripts/R/iframe_pdfs.R")
 source("~/scripts/R/rnotebook_setup.R")
 
-knitr::opts_knit$set(root.dir = "PLACEHOLDER")
+knitr::opts_knit$set(
+  root.dir = "PLACEHOLDER"
+)
 ```
