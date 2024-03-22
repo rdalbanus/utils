@@ -17,10 +17,10 @@ options(dplyr.summarise.inform = FALSE)
 theme_set(theme_bw(base_size = 12) + theme(axis.text = element_text(colour = "black")))
 
 # shortcut for axis labels
-.axis_label_orient <- function(orient = "d") {
+.axis_label_orient <- function(orient = "d", ...) {
   if (orient == "v") {
-    element_text(angle = 90, vjust = .5, hjust = 1)
+    element_text(angle = 90, vjust = .5, hjust = 1, ...)
   } else if (orient == "d") {
-    element_text(angle = 45, vjust = 1, hjust = 1)
+    element_text(angle = 45, vjust = 1, hjust = 1, ...)
   }
 }
