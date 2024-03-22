@@ -1,0 +1,12 @@
+name: foo
+channels:
+  - defaults
+  - conda-forge
+  - anaconda
+  - bioconda
+dependencies:
+  - R=3.*
+  - python=3.*
+  - r-tidyverse
+  - r-data.table
+  - r-optparse
