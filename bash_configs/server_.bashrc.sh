@@ -76,6 +76,8 @@ alias l='ls'
 alias ll='ls -hl'
 alias lll='ls -hlrt'
 
+alias htopu='htop -u `whoami`'
+
 alias git='hub'
 alias gini='git init && echo ".*" >> .gitignore'
 alias glog='git log'
@@ -92,13 +94,12 @@ alias radian4='radian --r-binary="/share/apps/R-4.2.1/lib64/R/bin/R"'
 alias sv='samtools view'
 alias ib='intersectBed'
 
+# Helpers
 alias logcollapse='grep -v "^==>\|^\[" | sort | uniq -c'
-
 alias bashedit='nano ~/.bashrc'
 alias bashsource='source ~/.bashrc'
 
 # Shortcuts
-
 alias park='cd ~/work'
 
 # Server operation
@@ -109,8 +110,6 @@ alias park='cd ~/work'
 #alias squ='squeue -u albanus'
 #alias sq='sq | less -S'
 #alias whatsrunning='sq | grep albanus | grep RUNNING | less -S'
-
-alias htopu='htop -u `whoami`'
 
 # Tab title function
 function title {
@@ -136,8 +135,8 @@ if [ -f "/home/dricardo/miniconda3/envs/work/etc/profile.d/mamba.sh" ]; then
 fi
 # <<< conda initialize <<<
 
-conda activate work
 
+conda activate work
 . ~/miniconda3/envs/work/share/bash-completion/bash_completion
 snakemake --bash-completion
 # eval "$(register-python-argcomplete conda)"
