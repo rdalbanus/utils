@@ -5,9 +5,11 @@ export RSTUDIO_WHICH_R=/opt/homebrew/Caskroom/miniforge/base/bin/R
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadacec
 
+# Use bat as man pager
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+
 # lesspipe deactivation - keep this for security reasons
-unset LESSOPEN
-unset LESSCLOSE
+unset LESSOPEN; unset LESSCLOSE
 
 # Take the chain out of the chainsaw
 alias dd='echo use /usr/bin/dd for dd'
@@ -15,25 +17,29 @@ alias rm='echo -e "Use /bin/rm to permanently delete files, \
 otherwise use trash-put or tp\n"'
 alias tp='trash-put'
 alias tl='trash-list'
+alias script='sdfsa'
+alias script_real='script'
 
-alias du='du -sh'
-alias lss='zless -S'
+# Aliases, shortcuts, and QOL improvements
 alias z='zcat'
 alias h='head'
 alias t='tail'
-alias wcl='wc -l'
-alias suc='sort | uniq -c'
-alias rq='R -q'
 alias vi='vim'
-alias rl='readlink -e'
-alias script='sdfsa'
-alias script_real='script'
-alias xpressargs='xargs -I {}'
-alias firefox='open -a firefox'
+alias find='gfind'
+alias readlink='greadlink'
+
+alias du='du -sh'
+alias lss='zless -S'
 alias grep='grep --color=auto'
 
-# GNU utils
-alias find='gfind'
+alias wcl='wc -l'
+alias rq='R -q'
+alias rl='readlink -e'
+alias ca='conda activate'
+
+alias xpressargs='xargs -I {}'
+alias htopu='htop -u `whoami`'
+alias suc='sort | uniq -c'
 
 alias d='cd'
 alias ..="cd .."
@@ -46,12 +52,18 @@ alias l='ls'
 alias ll='ls -hl'
 alias lll='ls -hlrt'
 
-alias gini='git init && echo ".*" >> .gitignore'
 alias glog='git log'
 alias gst='git status'
 alias gad='git add'
 alias gcomm='git commit'
 
+# Helpers
+alias bashedit='nano ~/.bash_profile'
+alias bashsource='source ~/.bash_profile'
+
+alias gini='git init && echo ".*" >> .gitignore'
+
+# # Initialize java environment
 #export PATH="$HOME/.jenv/bin:$PATH"
 #export PATH="$HOME/bin:$PATH"
 #eval "$(jenv init -)"

@@ -4,7 +4,7 @@
 
 if [ "$1" == "" -o "$2" == "" ]; then
         echo "Usage: mktemplate [template] [outfile]"
-        echo "see ~dricardo/templates for available templates"
+        echo "see ~/templates for available templates"
         exit
 fi
 
