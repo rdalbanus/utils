@@ -1,0 +1,28 @@
+Host *
+    ServerAliveInterval=10
+    ServerAliveCountMax=6
+    AddKeysToAgent yes
+
+Host gg garbagegoober garbagegoober.edu
+    Hostname garbagegoober.edu
+    User XXX
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    ForwardX11Timeout 365d
+    ControlPath ~/.ssh/ssh_garbagegoober-%h-%p-%r
+    ControlPersist yes
+    LocalForward 8799 127.0.0.1:8799
+
+# Tunnel to another server
+Host gg-otherserver
+    PubkeyAuthentication yes
+    Hostname otherserver.edu
+    ProxyCommand ssh gg -W %h:%p
+    User XXX
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 365d
+    ControlMaster auto
+    ControlPath ~/.ssh/ssh_garbagegoober-%h-%p-%r
+    ControlPersist yes
