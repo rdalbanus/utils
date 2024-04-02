@@ -1,0 +1,2 @@
+options(repos=structure(c(CRAN="https://cloud.r-project.org/")))
+Sys.setenv(WORKDIR = "/home/dricardo/work")
