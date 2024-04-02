@@ -1,0 +1,63 @@
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+
+Plugin 'crusoexia/vim-monokai'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+"Plugin 'Valloric/YouCompleteMe'
+
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+colorscheme monokai2
+set guifont=Monospace\ 11
+set nu
+syntax on
+
+" Use real tabs for these file types
+autocmd FileType txt,tsv set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4 
+
+" More powerful backspacing
+set backspace=indent,eol,start  
+
+" Set rulers
+set colorcolumn=72,80
+
+" Don't auto-comment on new line
+" https://vimdoc.sourceforge.net/htmldoc/change.html#fo-table
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" Add snakemake syntax
+au BufNewFile,BufRead Snakefile set syntax=snakemake
+au BufNewFile,BufRead *.smk set syntax=snakemake
+
+" netwr config
+let g:netrw_banner = 0
+let g:netrw_browse_split = 3
+let g:netrw_winsize = 20
