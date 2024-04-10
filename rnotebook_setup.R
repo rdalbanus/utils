@@ -1,8 +1,5 @@
-library(knitr)
-library(ggplot2)
+library(tidyverse)
 library(RColorBrewer)
-library(dplyr)
-library(tidyr)
 library(scales)
 library(glue)
 
@@ -14,7 +11,8 @@ knitr::opts_chunk$set(dev = "CairoPNG")
 options(dplyr.summarise.inform = FALSE)
 
 # ggplot theme setup
-theme_set(theme_bw(base_size = 12) + theme(axis.text = element_text(colour = "black")))
+theme_set(theme_bw(base_size = 12) +
+  theme(axis.text = element_text(colour = "black")))
 
 # shortcut for axis labels
 .axis_label_orient <- function(orient = "d", ...) {
