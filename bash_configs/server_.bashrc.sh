@@ -53,6 +53,7 @@ alias vi='vim'
 alias du='du -sh'
 alias lss='zless -S'
 alias grep='grep --color=auto'
+alias cat='bat'
 
 alias wcl='wc -l'
 alias rq='R -q'
@@ -122,3 +123,4 @@ conda activate work
 . ~/miniconda3/envs/work/share/bash-completion/bash_completion
 snakemake --bash-completion
 # eval "$(register-python-argcomplete conda)"
+
