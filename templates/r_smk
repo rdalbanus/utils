@@ -1,0 +1,18 @@
+library(logr)
+library(tidyverse)
+library(glue)
+
+message(glue("Saving log to {snakemake@log$log}"))
+message(glue("Saving debug info to {snakemake@log$debug}"))
+log_open(file_name = snakemake@log$log, logdir = F, autolog = T)
+save.image(file = snakemake@log$debug)
+
+outputs <- snakemake@output
+params <- snakemake@params
+wcs <- snakemake@wildcards
+
+###############
+# CODE
+###############
+
+log_close()

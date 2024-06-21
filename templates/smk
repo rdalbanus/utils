@@ -14,33 +14,41 @@ wildcard_constraints:
     x = "\w"
 
 
-# Helper functions
-def logfile(wildcards):
-    """
-    Generate a log file for each rule (via `params`). Because we can
-    only call the rule name inside the shell directive, we need a dummy.
+# Load helpers (in a directory named as the snakefile)
+sys.dont_write_bytecode = True  # Keep directory clean
+import snakefile.helpers as hlp
 
-    Add the following params:
-    params:
-        log = logfile,
+# def logfile(wildcards):
+#     """
+#     Generate a log file for each rule (via `params`). Because we can
+#     only call the rule name inside the shell directive, we need a dummy.
 
-    Add the command below to the end of each `shell` directive:
-    |& tee `echo {params.log} | sed 's/rulename/{rule}/g'`
-    """
-    wcs = [f"{key}-{value}" for key, value in wildcards.items()]
-    wcs = "__".join(wcs)
-    sep = "__" if wcs != "" else ""
-    logfile = join("logs", f"rulename{sep}{wcs}.log")
-    return logfile
+#     Add the following params:
+#     params:
+#         log = logfile,
 
+#     Add the command below to the end of each `shell` directive:
+#     |& tee `echo {params.log} | sed 's/rulename/{rule}/g'`
+#     """
+#     wcs = [f"{key}-{value}" for key, value in wildcards.items()]
+#     wcs = "__".join(wcs)
+#     sep = "__" if wcs != "" else ""
+#     handle = f"{sep}{wcs}.log".replace("/", "_")
+#     logfile = join("logs", "rulename", handle)
+#     return logfile
+
+include: "snakefile/rules_XXX.smk"
 
 # Pipeline
 rule all:
     input:
-        expand(join(RESULTS, "{wildcard}.out"), wildcard=x),
+        expand(
+            join(RESULTS, "{wildcard}.out"), 
+            wildcard=x
+        ),
 
 
-rule skeleton:
+rule shell:
     input:
     output:
     params:
@@ -50,4 +58,20 @@ rule skeleton:
         "envs/env.yml",
     shell:
         """
+        Rscript \
+        |& tee `mkdir -p logs/{rule}; echo {params.log} | \
+            sed 's/rulename/{rule}/g'`
         """
+
+rule script:
+    input:
+    output:
+    params:
+    threads:
+    log:
+        log = join(OUTDIR, "logfile.log"),
+        debug = join(OUTDIR, "logfile.RData")
+    conda:
+        "../envs/env.yml",
+    script:
+        "../../scripts/script.R"

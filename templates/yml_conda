@@ -1,0 +1,31 @@
+name: 
+channels:
+  - conda-forge
+dependencies:
+  # Main packages
+  - 
+  # - pip:
+  #   - 
+
+  # Necessary packages
+  - python = 
+  # - pip:
+  #   - 
+
+  # Other packages
+  #     The versions here were picked by conda during the test runs.
+  #     Adjust as needed for your machine.
+  
+  ## Python
+  - snakemake =  # for debugging `script` calls
+  - pip = 
+  # - pip:
+  #   - 
+  
+  ## R
+  - r-optparse = 
+  - r-qs = 
+  - r-pak = 
+  - r-logr = 
+  - r-clisymbols = 
+  - r-tidylog = 
