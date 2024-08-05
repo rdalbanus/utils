@@ -24,6 +24,10 @@ source ~/.iterm2_shell_integration.zsh
 
 umask 022  # Set default permissions
 
+# Fix key bindings in screen
+bindkey  "^[[1~"   beginning-of-line
+bindkey  "^[[4~"   end-of-line
+
 # User specific aliases and functions
 export WORKDIR="/home/dricardo/work"
 
@@ -150,4 +154,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 conda activate work
-compdef _gnu_generic snakemak
+compdef _gnu_generic snakemake
