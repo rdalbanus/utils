@@ -15,9 +15,9 @@ def extract_images(html_file):
 
     soup = BeautifulSoup(html, 'html.parser')
 
-    # Find all iframe tags with a data URL
-    for i, iframe in enumerate(soup.find_all('iframe')):
-        data_url = iframe['src']
+    # Find all tags with a data URL
+    for i, tag in enumerate(soup.find_all(['iframe', 'embed'])):
+        data_url = tag['src']
         if not data_url.startswith('data:'):
             continue
 
@@ -32,6 +32,22 @@ def extract_images(html_file):
 
         # Write the data to a file
         with open(os.path.join(output_dir, f'file{i}.{ext}'), 'wb') as f:
+            f.write(data)
+            
+    # Find all img tags with a PNG data URL
+    for i, img in enumerate(soup.find_all('img')):
+        data_url = img['src']
+        if not data_url.startswith('data:image/png;base64'):
+            continue
+
+        # Split the data URL into the metadata and the data
+        metadata, data = data_url.split(',')
+
+        # Decode the Base64 data
+        data = base64.b64decode(data)
+
+        # Write the data to a PNG file
+        with open(os.path.join(output_dir, f'image{i}.png'), 'wb') as f:
             f.write(data)
 
 if __name__ == "__main__":
