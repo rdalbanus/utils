@@ -1,18 +1,36 @@
-library(tidyverse)
+
+if (!require(tidyverse)) {
+  library(dplyr)
+  library(tidyr)
+  library(ggplot2)
+}
 library(RColorBrewer)
 library(scales)
 library(glue)
 
 # Setup chunk options
-knitr::opts_chunk$set(fig.width = 4, fig.height = 4, fig.show = "hold")
-knitr::opts_chunk$set(dev = "CairoPNG")
+knitr::opts_chunk$set(
+  fig.width = 4, 
+  fig.height = 4, 
+  fig.show = "hold",
+  dev = "CairoPNG"
+)
 
 # Disable `summarise()` has grouped output by 'foo'
 options(dplyr.summarise.inform = FALSE)
 
 # ggplot theme setup
-theme_set(theme_bw(base_size = 12) +
-  theme(axis.text = element_text(colour = "black")))
+theme_set(
+  theme_bw(
+    base_size = 12, 
+    base_family = "Helvetica"
+  ) +
+    theme(
+      axis.text = element_text(colour = "black"),
+      panel.grid.minor = element_blank(),
+      strip.background = element_blank()
+    )
+)
 
 # shortcut for axis labels
 .axis_label_orient <- function(orient = "d", ...) {
