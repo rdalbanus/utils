@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$HOME/bin:$PATH"
+export XDG_CONFIG_HOME="~/.config"
 
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadacec
@@ -160,6 +161,10 @@ alias ls='ls -G'
 alias l='ls'
 alias ll='ls -hl'
 alias lll='ls -hlrt'
+
+alias e='eza'
+alias ee='eza -hl'
+alias eee='eza -hl -snew'
 
 alias glog='git log'
 alias gst='git status'

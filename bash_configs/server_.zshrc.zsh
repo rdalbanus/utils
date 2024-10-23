@@ -30,6 +30,7 @@ bindkey  "^[[4~"   end-of-line
 
 # User specific aliases and functions
 export WORKDIR="/home/dricardo/work"
+export XDG_CONFIG_HOME="/home/dricardo/.config"
 
 PATH=$PATH:$HOME/bin; export PATH
 
@@ -114,6 +115,10 @@ alias ls='ls --color=auto'
 alias l='ls'
 alias ll='ls -hl'
 alias lll='ls -hlrt'
+
+alias e='eza'
+alias ee='eza -hl'
+alias eee='eza -hl -snew'
 
 alias git='hub'
 alias gini='git init && echo ".*" >> .gitignore'
