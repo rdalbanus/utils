@@ -104,7 +104,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export PATH="$HOME/bin:$PATH"
-export XDG_CONFIG_HOME="~/.config"
+
+export XDG_CONFIG_HOME=~/.config
+export EZA_CONFIG_DIR=~/.config/eza
 
 export CLICOLOR=1
 export LSCOLORS=ExGxFxdaCxDaDahbadacec
