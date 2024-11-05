@@ -23,7 +23,7 @@ options(dplyr.summarise.inform = FALSE)
 theme_set(
   theme_bw(
     base_size = 12, 
-    base_family = "Helvetica"
+    base_family = "Liberation Sans"
   ) +
     theme(
       axis.text = element_text(colour = "black"),
