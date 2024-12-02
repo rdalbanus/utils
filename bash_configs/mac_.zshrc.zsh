@@ -116,7 +116,7 @@ export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 
 # zsh prompt "➜ host:dir git $ "
 export PROMPT="%(?:%{$fg_bold[green]%}%1{➜%} :%{$fg_bold[red]%}%1{➜%}) "
-PROMPT+="%{$reset_color%}%m:%{$fg[cyan]%}%5~%{$reset_color%}"
+PROMPT+="%{$reset_color%}%m:%{$fg[cyan]%}%4~%{$reset_color%}"
 PROMPT+=' $(git_prompt_info)$ '
 
 # lesspipe deactivation - keep this for security reasons
