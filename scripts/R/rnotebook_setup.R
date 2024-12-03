@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
   fig.width = 4, 
   fig.height = 4, 
   fig.show = "hold",
-  dev = "CairoPNG"
+  dev = "cairo_pdf"
 )
 
 # Disable `summarise()` has grouped output by 'foo'
@@ -23,7 +23,7 @@ options(dplyr.summarise.inform = FALSE)
 theme_set(
   theme_bw(
     base_size = 12, 
-    base_family = "Liberation Sans"
+    base_family = "Liberation Sans"  # improves cross-platform compatibility
   ) +
     theme(
       axis.text = element_text(colour = "black"),
