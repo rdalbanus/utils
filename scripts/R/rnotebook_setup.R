@@ -28,7 +28,13 @@ theme_set(
     theme(
       axis.text = element_text(colour = "black"),
       panel.grid.minor = element_blank(),
-      strip.background = element_blank()
+      strip.background = element_blank(),
+      axis.line = element_blank(), 
+      axis.ticks = element_line(color = "black"),
+      panel.border = element_rect(color = "black"),
+      plot.background = element_blank(),
+      legend.background = element_blank(),
+      legend.key = element_blank()
     )
 )
 
