@@ -46,3 +46,7 @@ theme_set(
     element_text(angle = 45, vjust = 1, hjust = 1, ...)
   }
 }
+
+# Functions to protect
+# Usage: library(tidyverseFunctionsHoggR, exclude = .protected_funs)
+.protected_funs <- c("select", "rename", "filter", "slice", "simplify")
